@@ -10,7 +10,8 @@ const {
     SHOPIFY_API_SECRET,
     SHOPIFY_ACCESS_TOKEN,
     SCOPES,
-    SHOP
+    SHOP,
+    HOST_NAME
 } = process.env
 
 // Initialize the shopify context
@@ -19,7 +20,7 @@ Shopify.Context.initialize({
     API_SECRET_KEY: SHOPIFY_API_SECRET,
     SCOPES: SCOPES,
     API_VERSION: ApiVersion.October21,
-    HOST_NAME: "nftgate.freenovationenergyscience.com",
+    HOST_NAME: HOST_NAME,
     IS_EMBEDDED_APP: false
 })
 
