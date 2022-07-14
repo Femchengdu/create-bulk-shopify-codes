@@ -49,7 +49,7 @@ function createStringsWithPrefix(prefix, number_of_strings) {
     return strList
 }
 
-function formatStringsArrayDiscountCodes(stringArray) {
+function formatStringsArrayToCodes(stringArray) {
     const formatedCodesArray = stringArray.map(string => {
         return {
             code: string
@@ -155,7 +155,7 @@ async function bulkConvertCodesArrayToDiscountCodes(original_array, price_rule) 
 module.exports = {
     returnIdString,
     createStringsWithPrefix,
-    formatStringsArrayDiscountCodes,
+    formatStringsArrayToCodes,
     createPriceRule,
     createBatchDiscountCodesFromPriceId,
     getDiscountCodeJobStatus,

@@ -1,7 +1,7 @@
 
 const {
     createStringsWithPrefix,
-    formatStringsArrayDiscountCodes,
+    formatStringsArrayToCodes,
     bulkConvertCodesArrayToDiscountCodes,
     createPriceRule,
     createBatchDiscountCodesFromPriceId,
@@ -26,7 +26,7 @@ const {
     // Create a strings array of a given length
     const stringList = createStringsWithPrefix('CYBORG-CODE', 10980)
     // Format the strings list to codes list
-    const genratedRawCodes = formatStringsArrayDiscountCodes(stringList)
+    const genratedRawCodes = formatStringsArrayToCodes(stringList)
     // Bulk transform the codes list to discount codes
     let response = await bulkConvertCodesArrayToDiscountCodes(genratedRawCodes, '1186289254637')
     console.log(response)
