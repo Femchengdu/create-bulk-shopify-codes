@@ -65,22 +65,35 @@ function returnSession() {
     }
 }
 
-async function createPriceRule() {
+// Set up default price rule template
+const default_rule_definition = {
+    title: "SUMMERSALE10OFF",
+    target_type: "line_item",
+    target_selection: "all",
+    allocation_method: "across",
+    value_type: "fixed_amount",
+    value: "-10.0",
+    customer_selection: "all",
+    starts_at: "2022-01-19T17:59:10Z",
+}
+
+async function createPriceRule(rules = default_rule_definition) {
     /* Price rule ids
     SUMMERSALE10OFF 1194068345069
     SUMMERSALE10OFF 1194068017389
     CYBORG-CODE 1186289254637 
     */
-
+    // Set up the price rules
     const price_rule = new PriceRule({ session: returnSession() });
-    price_rule.title = "SUMMERSALE10OFF";
-    price_rule.target_type = "line_item";
-    price_rule.target_selection = "all";
-    price_rule.allocation_method = "across";
-    price_rule.value_type = "fixed_amount";
-    price_rule.value = "-10.0";
-    price_rule.customer_selection = "all";
-    price_rule.starts_at = "2022-01-19T17:59:10Z";
+    price_rule.title = rules.title;
+    price_rule.target_type = rules.target_type;
+    price_rule.target_selection = rules.target_selection;
+    price_rule.allocation_method = rules.allocation_method;
+    price_rule.value_type = rules.value_type;
+    price_rule.value = rules.value;
+    price_rule.customer_selection = rules.customer_selection;
+    price_rule.starts_at = rules.starts_at;
+    // Make the request
     const result = await price_rule.save({});
     return result
 }
